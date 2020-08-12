@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import News from '../News/News';
 import Sidenav from '../Sidenav/Sidenav';
 import Loader from '../Loader/Loader';
-import Pagination from '../Pagination/Pagination';
+import Footer from '../Footer/Footer';
 
 function Content() {
 
@@ -18,12 +18,13 @@ function Content() {
     const [country, setCountry] = useState('us');
     const [category, setCategory] = useState('general');
     const [page, setPage] = useState(1);
+    const [source, setSource] = useState('');
     const [search, setSearch] = useState('');
 
     useEffect(() => {
         console.log(page);
         setIsLoadedData(false);
-        fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pageSize=${pageSize}&page=${page}&apiKey=${apiKey}`)
+        fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}${search ? '&q=' + search + '&' : '&'}pageSize=${pageSize}&page=${page}&apiKey=${apiKey}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -31,30 +32,21 @@ function Content() {
                 setTotalNews(data.totalResults);
                 setIsLoadedData(true);
             });
-    }, [country,category, page]);
-
-    const handleSearch =  () => {
-        setIsLoadedData(false);
-        fetch(`https://newsapi.org/v2/top-headlines?country=${country}&q=${search}&pageSize=${pageSize}&apiKey=${apiKey}`)
-            .then(res => res.json())
-            .then(data => {
-                setNews(data);
-                setIsLoadedData(true);
-            });
-    }
+    }, [country,category, page, search]);
 
     return (
         <div className="">
             <Header country={setCountry} />
             <div className="container">
                 <div className="content-layout">
-                    <Sidenav isLoadedData={isLoadedData} news={news.articles} category={setCategory} search={setSearch} searchFn={handleSearch} />
+                    <Sidenav isLoadedData={isLoadedData} news={news.articles} category={setCategory} search={search} searchFn={setSearch} source={setSource} />
                     { isLoadedData ? 
                         <News news={news.articles} totalNews={totalNews} pageSize={pageSize} page={page} pageChange={setPage} /> 
                         : <Loader />
                     }
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

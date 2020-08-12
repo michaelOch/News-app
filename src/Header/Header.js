@@ -11,6 +11,8 @@ const Header = ({ country }) => {
                 <div className="">
                     <select className="form-select" id="country" name="country" onChange={(e) => country(e.target.value)}>
                         <option value="us">USA</option>
+                        <option value="gb">UK</option>
+                        <option value="ng">Nigeria</option>
                         <option value="cn">China</option>
                         <option value="ca">Canada</option>
                         <option value="fr">France</option>
@@ -18,7 +20,6 @@ const Header = ({ country }) => {
                         <option value="it">Italy</option>
                         <option value="pt">Portugal</option>
                         <option value="za">South Africa</option>
-                        <option value="gb">UK</option>
                     </select>
                 </div>
             </nav>

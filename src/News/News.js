@@ -7,6 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 const News = ({ news, totalNews, page, pageSize, pageChange }) => {
+
+    const convertStamp = (ts) => {
+        let date =  new Date(Date.parse(ts));
+        return date.toUTCString();
+    }
+
     return (
         <div className="content-wrapper">
             {
@@ -22,8 +28,8 @@ const News = ({ news, totalNews, page, pageSize, pageChange }) => {
                                 <p>{article.description}</p>
                             </div>
                             <div className="news-content_bottom">
-                                <small>{article.publishedAt}</small>
-                                <p><a className="" href={article.url}>Visit <FontAwesomeIcon icon={faExternalLinkAlt} color="#9a092c" /></a></p>
+                                <small>{ convertStamp(article.publishedAt)}</small>
+                                <p><a className="" href={article.url} target="blank" >Visit <FontAwesomeIcon icon={faExternalLinkAlt} color="#9a092c" /></a></p>
                             </div>
                         </div>
                     </div>
