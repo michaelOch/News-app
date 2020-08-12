@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #9a092c;
+    color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.brand {
+    font-size: 32px;
+}
+
+.form-select {
+    border: 1px solid #9a092c;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    outline: none;
+}

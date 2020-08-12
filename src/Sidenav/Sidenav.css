@@ -1,0 +1,73 @@
+.sidenav-container {
+    min-width: 250px !important;
+    max-width: 300px !important;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-append {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #9a092c;
+    width: 20%;
+    height: 50px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+}
+
+.form-input {
+    width: 80%;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid #9a092c;
+    /* border-radius: 25px; */
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 5px 15px;
+}
+
+.form-input:focus {
+    outline: none;
+}
+
+.list-group {
+    list-style: none;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.list-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #dcd8d9;
+    cursor: pointer;
+}
+
+.list-item a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.list-item a:hover {
+    text-decoration: none;
+}
+
+.top-headline {
+    margin-top: 1rem;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.top-headline > .list-group {
+    list-style: circle;
+    margin-left: 1rem;
+}
+
+.top-headline > .list-group > .list-item {
+    border: none;
+}
