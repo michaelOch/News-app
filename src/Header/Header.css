@@ -9,6 +9,12 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10;
+}
+
+.menu {
+    display: none;
+    cursor: pointer;
 }
 
 .brand {
@@ -24,4 +30,12 @@
 
 .form-select:focus {
     outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -68,3 +68,30 @@
 .news-content_bottom a:hover {
     text-decoration: none;
 }
+
+@media only screen and (max-width: 768px) {
+    .news-container {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .news-container {
+        flex-direction: column;
+    }
+
+    .news-avatar {
+        width: 70%;
+        margin: 0 auto;
+    }
+    
+    .news-avatar > img {
+        width: 100% !important;
+        max-height: 220px !important;
+    }
+    
+    .news-content {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

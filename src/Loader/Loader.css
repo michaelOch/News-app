@@ -1,8 +1,8 @@
 .loader {
-    position: absolute;
+    /* position: absolute;
     left: 0;
-    right: 0;
-    margin: auto;
+    right: 0; */
+    margin: 200px auto;
     border: 16px solid #f3f3f3;
     border-top: 16px solid #9a092c;
     border-radius: 50%;

@@ -1,10 +1,16 @@
 import React from 'react';
 import './Header.css';
 
-const Header = ({ country }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
+const Header = ({ country, toggleFunction }) => {
     return (
         <header>
             <nav className="navbar">
+                <div className="menu" onClick={ toggleFunction ? toggleFunction : null } >
+                    <FontAwesomeIcon icon={faBars} style={{ color:"#ffffff", fontSize:"20px"}} />
+                </div>
                 <div className="brand">
                     News
                 </div>

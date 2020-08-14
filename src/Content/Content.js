@@ -21,6 +21,8 @@ function Content() {
     const [source, setSource] = useState('');
     const [search, setSearch] = useState('');
 
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
     useEffect(() => {
         console.log(page);
         setIsLoadedData(false);
@@ -34,12 +36,33 @@ function Content() {
             });
     }, [country,category, page, search]);
 
+    const openHandler = () => {
+        if(!sidebarOpen) {
+            setSidebarOpen(true);
+        } else {
+            setSidebarOpen(false);
+        }
+    }
+
+    const closeHandler = () => {
+        setSidebarOpen(false);
+    }
+
+    let sidebarClass, overlayClass;
+    if(sidebarOpen) {
+        sidebarClass = 'sidenav-container sidenav-container-show';
+        overlayClass = 'sidenav-overlay';
+    } else {
+        sidebarClass = 'sidenav-container';
+        overlayClass = '';
+    }
+
     return (
         <div className="">
-            <Header country={setCountry} />
+            <Header country={setCountry} toggleFunction={openHandler} />
             <div className="container">
                 <div className="content-layout">
-                    <Sidenav isLoadedData={isLoadedData} news={news.articles} category={setCategory} search={search} searchFn={setSearch} source={setSource} />
+                    <Sidenav sidebarClass={sidebarClass} overlayClass={overlayClass} toggleFunction={closeHandler} isLoadedData={isLoadedData} news={news.articles} category={setCategory} search={search} searchFn={setSearch} source={setSource} />
                     { isLoadedData ? 
                         <News news={news.articles} totalNews={totalNews} pageSize={pageSize} page={page} pageChange={setPage} /> 
                         : <Loader />
